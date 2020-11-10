@@ -2,16 +2,46 @@ function! scranch#open()
   let note_path = s:get_scranch_note_path()
   let note_bufnr = bufnr(note_path)
   let note_winnr = bufwinnr(note_bufnr)
+  " either buffer doesn't exist or is hidden
   if note_bufnr == -1 || note_winnr == -1
-    call s:create_window_and_move_to_it()
-  else
-    if note_bufnr != -1
-      if winnr() != note_winnr
-        execute note_winnr . 'wincmd w'
-      endif
-    endif
+    call s:open_window()
+  " buffer is on screen not active
+  elseif note_bufnr != -1 && winnr() != note_winnr
+    " move to it
+    execute note_winnr . 'wincmd w'
   endif
+  execute 'startinsert!'
   call s:activate_autocmds(bufnr('%'))
+endfunction
+
+function! scranch#preview()
+  let buf_name = s:get_scranch_note_path()
+  let note_winnr = bufwinnr(buf_name)
+  " scranch window is currently open
+  if note_winnr != -1
+    execute note_winnr . 'close'
+  else
+    call s:open_window()
+    call s:deactivate_autocmds()
+    execute bufwinnr(bufnr('#')) . 'wincmd w'
+    call s:activate_autocmds(bufnr(buf_name))
+  endif
+endfunction
+
+" utility
+
+function! s:open_window()
+  call s:create_project_dir()
+  let size = float2nr(0.2 * winheight(0))
+  execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
+  silent execute 'normal! G$'
+endfunction
+
+function! s:create_project_dir()
+  let project_dir_path = s:get_scranch_project_path()
+  if !isdirectory(project_dir_path)
+    call mkdir(project_dir_path, 'p')
+  endif
 endfunction
 
 function! s:close_window()
