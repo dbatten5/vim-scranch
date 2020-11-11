@@ -34,6 +34,23 @@ function! scranch#toggle_main()
   execute ':e ' . s:get_main_note_path()
 endfunction
 
+function! scranch#add_todo()
+  call append(line('.'), '[ ] ')
+  execute 'normal! j'
+  execute 'startinsert!'
+endfunction
+
+function! scranch#toggle_todo()
+  let line_nr = line('.')
+  let cur_line = getline('.')
+  if cur_line =~ '\[\ \]'
+    let new_line = substitute(cur_line, '\[\ \]', '\[x\]', 'g')
+  elseif cur_line =~ '\[x\]'
+    let new_line = substitute(cur_line, '\[x\]', '\[\ \]', 'g')
+  endif
+  call setline(line_nr, new_line)
+endfunction
+
 " utility
 
 function! s:get_main_note_path()

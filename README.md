@@ -13,15 +13,17 @@ led to this plugin. Opening the note window brings up a new note in a
 
 ## Features
 
-- `:Scranch` to open the `scranch` note window and into insert mode. Leaving the
-window automatically closes and saves the window.
+- `:Scranch` to open the `scranch` note window and into insert mode. Leaving 
+the window automatically closes it and saves the note.
 - `:ScranchPreview` to open the `scranch` window but keep focus on the current
 window. Same command again to close it.
 
-Inside a `scranch` buffer:
+Inside a `scranch` buffer in normal mode:
 
-- `M` to flip to the note associated with the `main` branch (or master if 
-you're oldschool)
+- `M` to flip to the note associated with the `main` branch (or `master` if 
+you're [oldschool](https://github.com/github/renaming))
+- `T` to add a new todo item
+- `-` with your cursor on a todo item line to toggle completion
 
 With more in the pipeline, including proper documentation.
 
@@ -35,7 +37,7 @@ Plug 'dbatten5/vim-scranch'
 
 **NB**
 This plugin currently depends on [vim-fugitive](https://github.com/tpope/vim-fugitive)
-(and I think it always will) and [vim-projectroot](https://github.com/dbakker/vim-projectroot)
+(and likely always will) and [vim-projectroot](https://github.com/dbakker/vim-projectroot)
 (hopefully to be removed soon).
 
 ## Current Limitations
