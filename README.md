@@ -13,10 +13,15 @@ led to this plugin. Opening the note window brings up a new note in a
 
 ## Features
 
-- `:Scranch` to open the scranch note window and into insert mode. Leaving the
+- `:Scranch` to open the `scranch` note window and into insert mode. Leaving the
 window automatically closes and saves the window.
-- `:ScranchPreview` to open the scranch window but keep focus on the current
+- `:ScranchPreview` to open the `scranch` window but keep focus on the current
 window. Same command again to close it.
+
+Inside a `scranch` buffer:
+
+- `M` to flip to the note associated with the `main` branch (or master if 
+you're oldschool)
 
 With more in the pipeline, including proper documentation.
 

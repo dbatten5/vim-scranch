@@ -30,7 +30,19 @@ function! scranch#preview()
   endif
 endfunction
 
+function! scranch#toggle_main()
+  execute ':e ' . s:get_main_note_path()
+endfunction
+
 " utility
+
+function! s:get_main_note_path()
+  let project_path = s:get_scranch_project_path()
+  if filereadable(project_path . '/master.md')
+    return project_path . '/master.md'
+  endif
+  return project_path .'/main.md'
+endfunction
 
 function! s:branch_existence_check()
   if fugitive#head() == ''
