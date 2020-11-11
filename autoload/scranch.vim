@@ -1,4 +1,5 @@
 function! scranch#open()
+  execute s:branch_existence_check()
   let note_path = s:get_scranch_note_path()
   let note_bufnr = bufnr(note_path)
   let note_winnr = bufwinnr(note_bufnr)
@@ -15,6 +16,7 @@ function! scranch#open()
 endfunction
 
 function! scranch#preview()
+  execute s:branch_existence_check()
   let buf_name = s:get_scranch_note_path()
   let note_winnr = bufwinnr(buf_name)
   " scranch window is currently open
@@ -30,7 +32,18 @@ endfunction
 
 " utility
 
+function! s:branch_existence_check()
+  if fugitive#head() == ''
+    echo 'scranch: not inside a git repo!'
+    return 'return 0'
+  endif
+  return ''
+endfunction
+
 function! s:open_window()
+  if fugitive#head() == ''
+    return 0
+  endif
   call s:create_project_dir()
   let size = float2nr(0.2 * winheight(0))
   execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
