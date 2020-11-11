@@ -47,6 +47,7 @@ function! s:open_window()
   call s:create_project_dir()
   let size = float2nr(0.2 * winheight(0))
   execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
+  setlocal filetype=scranch
   silent execute 'normal! G$'
 endfunction
 
