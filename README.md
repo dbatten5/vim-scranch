@@ -8,8 +8,8 @@ Git branch based note taking in vim.
 
 Often when I feel the need to take a quick note in vim, it's usually tied to
 the current thing I'm working on, which is often tied to a git branch, which
-led to this plugin. Opening the note window brings up a new note tied to the
-current git branch. New branch, new note.
+led to this plugin. Opening the note window brings up a new note in a
+(faux-)scratch window tied to the current git branch. New branch, new note.
 
 ## Features
 
@@ -22,7 +22,7 @@ With more in the pipeline, including proper documentation.
 
 ## Installation
 
-Use your favourite plugin manager to install this package. I like `vim-plug`
+Use your favourite plugin manager to install this package. I like `vim-plug`.
 
 ```
 Plug 'dbatten5/vim-scranch'
@@ -31,7 +31,7 @@ Plug 'dbatten5/vim-scranch'
 **NB**
 This plugin currently depends on [vim-fugitive](https://github.com/tpope/vim-fugitive)
 (and I think it always will) and [vim-projectroot](https://github.com/dbakker/vim-projectroot)
-(hopefully to be removed soon)
+(hopefully to be removed soon).
 
 ## Current Limitations
 
@@ -41,4 +41,4 @@ that yourselves.
 
 ## Credits
 
-Heavily based on [vim-scratch](https://github.com/mtth/scratch.vim)
+Heavily based on [vim-scratch](https://github.com/mtth/scratch.vim).
