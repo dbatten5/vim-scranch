@@ -47,6 +47,9 @@ function! scranch#toggle_todo()
     let new_line = substitute(cur_line, '\[\ \]', '\[x\]', 'g')
   elseif cur_line =~ '\[x\]'
     let new_line = substitute(cur_line, '\[x\]', '\[\ \]', 'g')
+  else
+    echo 'scranch: not on a todo item!'
+    return 0
   endif
   call setline(line_nr, new_line)
 endfunction
