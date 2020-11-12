@@ -41,7 +41,6 @@ function! scranch#add_todo()
 endfunction
 
 function! scranch#toggle_todo()
-  let line_nr = line('.')
   let cur_line = getline('.')
   if cur_line =~ '\[\ \]'
     let new_line = substitute(cur_line, '\[\ \]', '\[x\]', 'g')
@@ -51,7 +50,7 @@ function! scranch#toggle_todo()
     echo 'scranch: not on a todo item!'
     return 0
   endif
-  call setline(line_nr, new_line)
+  call setline(line('.'), new_line)
 endfunction
 
 " utility
@@ -109,7 +108,14 @@ function! s:create_window_and_move_to_it()
 endfunction
 
 function! s:get_project_name()
-  let project = projectroot#guess()
+  if exists('*projectroot#guess')
+    let project = projectroot#guess()
+  else
+    let project = finddir('.git/..', expand('%:p:h').';')
+    if empty(project)
+      let project = getcwd()
+    endif
+  endif
   return substitute(split(project, '/')[-1], ' ', '_', 'g')
 endfunction
 

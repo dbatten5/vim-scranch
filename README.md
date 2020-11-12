@@ -36,9 +36,11 @@ Plug 'dbatten5/vim-scranch'
 ```
 
 **NB**
-This plugin currently depends on [vim-fugitive](https://github.com/tpope/vim-fugitive)
-(and likely always will) and [vim-projectroot](https://github.com/dbakker/vim-projectroot)
-(hopefully to be removed soon).
+This plugin currently depends on
+[vim-fugitive](https://github.com/tpope/vim-fugitive) (and likely always will).
+It's recommended to have
+[vim-projectroot](https://github.com/dbakker/vim-projectroot) installed too,
+otherwise this plugin implements a fairly naive way of finding the project root
 
 ## Current Limitations
 
