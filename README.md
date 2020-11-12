@@ -20,12 +20,16 @@ window. Same command again to close it.
 
 Inside a `scranch` buffer in normal mode:
 
-- `M` to flip to the note associated with the `main` branch (or `master` if 
-you're [oldschool](https://github.com/github/renaming))
-- `T` to add a new todo item
-- `-` with your cursor on a todo item line to toggle completion
+- `M` to flip to the note associated with the `main` branch (or `master` if
+you're [oldschool](https://github.com/github/renaming)).
+- `T` to add a new todo item.
+- `-` with your cursor on a todo item line to toggle completion.
 
 With more in the pipeline, including proper documentation.
+
+To make your `scranch` experience richer, I'd thoroughly endorse integrating
+with [vim-dirvish](https://github.com/justinmk/vim-dirvish). `:Dirvish %`
+inside a `scranch` window to switch to other notes, delete old notes etc.
 
 ## Installation
 
@@ -40,13 +44,14 @@ This plugin currently depends on
 [vim-fugitive](https://github.com/tpope/vim-fugitive) (and likely always will).
 It's recommended to have
 [vim-projectroot](https://github.com/dbakker/vim-projectroot) installed too,
-otherwise this plugin implements a fairly naive way of finding the project root
+otherwise this plugin implements a fairly naive way of finding the project
+root.
 
 ## Current Limitations
 
 While this plugin creates new notes with ease, there's currently no support
 for deleting notes for stale / deleted branches. You'll just have to manage
-that yourselves.
+that yourselves. 
 
 ## Credits
 

@@ -31,6 +31,11 @@ function! scranch#preview()
 endfunction
 
 function! scranch#toggle_main()
+  let current_note = expand('%:r')
+  if current_note =~ 'main' || current_note =~ 'master'
+    echo 'scranch: already on main/master!'
+    return 0
+  endif
   execute ':e ' . s:get_main_note_path()
 endfunction
 
