@@ -77,7 +77,7 @@ function! s:branch_existence_check()
 endfunction
 
 function! s:open_window()
-  if fugitive#head() == ''
+  if empty(fugitive#head())
     return 0
   endif
   call s:create_project_dir()
@@ -99,17 +99,6 @@ function! s:close_window()
   let prev_bufnr = bufnr('#')
   call s:deactivate_autocmds()
   close
-endfunction
-
-function! s:create_window_and_move_to_it()
-  let project_dir_path = s:get_scranch_project_path()
-  if !isdirectory(project_dir_path)
-    call mkdir(project_dir_path, 'p')
-  endif
-  let size = float2nr(0.2 * winheight(0))
-  execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
-  execute 'normal! G'
-  execute 'startinsert!'
 endfunction
 
 function! s:get_project_name()
