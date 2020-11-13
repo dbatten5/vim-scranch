@@ -25,7 +25,7 @@ you're [oldschool](https://github.com/github/renaming)).
 - `T` to add a new todo item.
 - `-` with your cursor on a todo item line to toggle completion.
 
-With more in the pipeline, including proper documentation.
+With more in the pipeline.
 
 To make your `scranch` experience richer, I'd thoroughly endorse integrating
 with [vim-dirvish](https://github.com/justinmk/vim-dirvish). `:Dirvish %`
@@ -33,7 +33,7 @@ inside a `scranch` window to switch to other notes, delete old notes etc.
 
 ## Installation
 
-Use your favourite plugin manager to install this package. I like `vim-plug`.
+Use your favourite plugin manager to install this plugin. I like `vim-plug`.
 
 ```
 Plug 'dbatten5/vim-scranch'
