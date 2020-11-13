@@ -47,7 +47,7 @@ function! scranch#toggle_main()
 endfunction
 
 function! scranch#add_todo()
-  call append(line('.'), '[ ] ')
+  call append(line('.'), '- [ ] ')
   execute 'normal! j'
   execute 'startinsert!'
 endfunction
