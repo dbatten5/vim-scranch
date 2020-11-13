@@ -1,3 +1,10 @@
+" config
+
+let g:scranch_directory = get(g:, 'scranch_directory', '/tmp/scranch')
+let g:scranch_win_size = get(g:, 'scranch_win_size', 0.2)
+
+" public methods
+
 function! scranch#open()
   execute s:branch_existence_check()
   let note_path = s:get_scranch_note_path()
@@ -69,7 +76,7 @@ function! s:get_main_note_path()
 endfunction
 
 function! s:branch_existence_check()
-  if fugitive#head() == ''
+  if empty(fugitive#head())
     echo 'scranch: not inside a git repo!'
     return 'return 0'
   endif
@@ -78,10 +85,11 @@ endfunction
 
 function! s:open_window()
   if empty(fugitive#head())
+    echo 'scranch: not inside a git repo!'
     return 0
   endif
   call s:create_project_dir()
-  let size = float2nr(0.2 * winheight(0))
+  let size = float2nr(g:scranch_win_size * winheight(0))
   execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
   setlocal filetype=scranch
   silent execute 'normal! G$'

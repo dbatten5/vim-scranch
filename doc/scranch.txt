@@ -1,0 +1,71 @@
+*scranch.txt*    Git branch based note taking                               v1.0
+*Scranch*
+
+==============================================================================
+CONTENTS                                                      *ScranchContents*
+
+    1. Intro ........................................ |ScranchIntro|
+    2. Commands .................................. |ScranchCommands|
+      2.1 |:Scranch|
+      2.2 |:ScranchPreview|
+    3. Configuration ........................ |ScranchConfiguration|
+      3.1 |g:scranch_directory|
+      3.2 |g:scranch_win_size|
+    4. Mappings .................................. |ScranchMappings|
+
+==============================================================================
+OVERVIEW                                                         *ScranchIntro*
+
+Scranch provides a way to take notes that specifically relate to a git branch,
+without ever having to leave vim. Opening the note window brings up a new note
+in a (faux-)scratch window tied to the current git branch. New branch, new
+note.
+
+==============================================================================
+COMMANDS                                                      *ScranchCommands*
+
+------------------------------------------------------------------------------
+2.1 :Scranch                                                         *:Scranch*
+
+Open the scranch window and move into insert mode at the end of the note.
+Leaving the window automatically closes and saves the note.
+
+------------------------------------------------------------------------------
+2.2 :ScranchPreview                                           *:ScranchPreview*
+
+Open the scranch window but keep focus on the current window. Run the same
+command again to close the window.
+
+==============================================================================
+CONFIGURATION                                            *ScranchConfiguration*
+
+------------------------------------------------------------------------------
+3.1 g:scranch_directory = 'tmp/scranch'                   *g:scranch_directory*
+
+The root of the scranch note directory. Set this as a path to a valid
+directory on your disk.
+
+------------------------------------------------------------------------------
+3.2 g:scranch_win_size = 0.2                               *g:scranch_win_size*
+
+The size of the scranch window as a percentage of the full window height (0.2
+= 20%)
+
+==============================================================================
+MAPPINGS                                                      *ScranchMappings*
+
+Global ~
+    Scranch comes with no mappings out of the box, but feel free to add one
+    like so:
+        `nnoremap gs :Scranch<cr>`
+
+Buffer-local (filetype=scranch) ~
+    M              Switch to the main / master note. Use vim's builtin <c-^>
+                   to switch back to the note.
+    T              Add a todo item.
+    -              With your cursor on a todo item, toggle completion of the
+                   item.
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
