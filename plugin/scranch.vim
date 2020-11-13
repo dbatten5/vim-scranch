@@ -1,4 +1,4 @@
-command! -nargs=0 Scranch call scranch#open()
+command! -bang -nargs=0 Scranch call scranch#open(<bang>0)
 command! -nargs=0 ScranchPreview call scranch#preview()
 
 augroup scranch

@@ -25,10 +25,12 @@ note.
 COMMANDS                                                      *ScranchCommands*
 
 ------------------------------------------------------------------------------
-2.1 :Scranch                                                         *:Scranch*
+2.1 :Scranch[!]                                                      *:Scranch*
 
 Open the scranch window and move into insert mode at the end of the note.
 Leaving the window automatically closes and saves the note.
+
+With [!] the scranch window will open in the current active window.
 
 ------------------------------------------------------------------------------
 2.2 :ScranchPreview                                           *:ScranchPreview*

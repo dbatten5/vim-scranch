@@ -55,4 +55,4 @@ that yourselves.
 
 ## Credits
 
-Heavily based on [vim-scratch](https://github.com/mtth/scratch.vim).
+Inspired by and based on [vim-scratch](https://github.com/mtth/scratch.vim).

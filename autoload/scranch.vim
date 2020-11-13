@@ -5,14 +5,14 @@ let g:scranch_win_size = get(g:, 'scranch_win_size', 0.2)
 
 " public methods
 
-function! scranch#open()
+function! scranch#open(active)
   execute s:branch_existence_check()
   let note_path = s:get_scranch_note_path()
   let note_bufnr = bufnr(note_path)
   let note_winnr = bufwinnr(note_bufnr)
   " either buffer doesn't exist or is hidden
   if note_bufnr == -1 || note_winnr == -1
-    call s:open_window()
+    call s:open_window(a:active)
   " buffer is on screen not active
   elseif note_bufnr != -1 && winnr() != note_winnr
     " move to it
@@ -83,14 +83,18 @@ function! s:branch_existence_check()
   return ''
 endfunction
 
-function! s:open_window()
+function! s:open_window(active)
   if empty(fugitive#head())
     echo 'scranch: not inside a git repo!'
     return 0
   endif
   call s:create_project_dir()
   let size = float2nr(g:scranch_win_size * winheight(0))
-  execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
+  if a:active
+    execute ':e ' . s:get_scranch_note_path()
+  else
+    execute 'topleft ' . size .  ' new ' s:get_scranch_note_path()
+  endif
   setlocal filetype=scranch
   silent execute 'normal! G$'
 endfunction
