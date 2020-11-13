@@ -113,6 +113,10 @@ function! s:close_window()
   close
 endfunction
 
+function! s:save_note()
+  execute ':w'
+endfunction
+
 function! s:get_project_name()
   if exists('*projectroot#guess')
     let project = projectroot#guess()
@@ -141,6 +145,7 @@ function! s:activate_autocmds(buf_name)
   augroup ScranchAutoHide
     autocmd!
     execute 'autocmd Winleave <buffer=' . a:buf_name . '> nested call <SID>close_window()'
+    execute 'autocmd BufLeave <buffer=' . a:buf_name . '> nested call <SID>save_note()'
   augroup END
 endfunction
 

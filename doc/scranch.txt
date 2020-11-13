@@ -30,7 +30,9 @@ COMMANDS                                                      *ScranchCommands*
 Open the scranch window and move into insert mode at the end of the note.
 Leaving the window automatically closes and saves the note.
 
-With [!] the scranch window will open in the current active window.
+With [!] the scranch window will open in the current active window. Use vim's
+builtin <c-^> to flip back to your previous buffer, scranch will automatically
+save the note.
 
 ------------------------------------------------------------------------------
 2.2 :ScranchPreview                                           *:ScranchPreview*
