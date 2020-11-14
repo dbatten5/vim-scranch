@@ -67,7 +67,7 @@ Buffer-local (filetype=scranch) ~
     M              Switch to the main / master note. Use vim's built-in <c-^>
                    to switch back to the note.
     T              Add a todo item.
-    -              With your cursor on a todo item, toggle completion of the
+    =              With your cursor on a todo item, toggle completion of the
                    item.
 
 

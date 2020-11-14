@@ -23,7 +23,7 @@ Inside a `scranch` buffer in normal mode:
 - `M` to flip to the note associated with the `main` branch (or `master` if
 you're [oldschool](https://github.com/github/renaming)).
 - `T` to add a new todo item.
-- `-` with your cursor on a todo item line to toggle completion.
+- `=` with your cursor on a todo item line to toggle completion.
 
 With more in the pipeline.
 
