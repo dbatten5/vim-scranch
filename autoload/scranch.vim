@@ -107,8 +107,7 @@ function! s:create_project_dir()
 endfunction
 
 function! s:close_window()
-  execute ':w'
-  let prev_bufnr = bufnr('#')
+  call s:save_note()
   call s:deactivate_autocmds()
   close
 endfunction
@@ -133,12 +132,12 @@ function! s:get_scranch_project_path()
   return g:scranch_directory . '/' . s:get_project_name()
 endfunction
 
-function! s:get_branch_name()
+function! s:get_sanitized_branch_name()
   return substitute(fugitive#head(), '/', '_', 'g')
 endfunction
 
 function! s:get_scranch_note_path()
-  return s:get_scranch_project_path() . '/' . s:get_branch_name() . '.md'
+  return s:get_scranch_project_path() . '/' . s:get_sanitized_branch_name() . '.md'
 endfunction
 
 function! s:activate_autocmds(buf_name)

@@ -59,17 +59,22 @@ The size of the scranch window as a percentage of the full window height (0.2
 MAPPINGS                                                      *ScranchMappings*
 
 Global ~
-    Scranch comes with no mappings out of the box, but feel free to add one
-    like so:
-        `nnoremap gs :Scranch<cr>`
+
+Scranch comes with no global mappings out of the box, but feel free to add one
+like so: >
+
+    nnoremap gs :Scranch<cr>
 
 Buffer-local (filetype=scranch) ~
+    g?             Show this help.
+    <Plug>(scranch-toggle-main)
     M              Switch to the main / master note. Use vim's built-in <c-^>
                    to switch back to the note.
+    <Plug>(scranch-add-todo)
     T              Add a todo item.
-    =              With your cursor on a todo item, toggle completion of the
+    <Plug>(scranch-toggle-todo-completion)
+    -              With your cursor on a todo item, toggle completion of the
                    item.
-
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:
