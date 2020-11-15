@@ -64,6 +64,7 @@ function! scranch#toggle_todo()
     return 0
   endif
   call setline(line('.'), new_line)
+  execute 'normal! h'
 endfunction
 
 function! scranch#toggle_home()
