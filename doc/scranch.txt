@@ -77,6 +77,8 @@ Buffer-local (filetype=scranch) ~
                    item.
     <Plug>(scranch-toggle-home)
     gh             Switch to the home note, accessible from any project.
+    <Plug>(scranch-keep-alive)
+    P              Keep the scranch window alive after navigation away.
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:

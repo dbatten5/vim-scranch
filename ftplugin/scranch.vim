@@ -10,5 +10,8 @@ endif
 if !hasmapto('<Plug>(scranch-toggle-home)', 'n')
   execute 'nmap <buffer> gh <Plug>(scranch-toggle-home)'
 endif
+if !hasmapto('<Plug>(scranch-keep-alive)', 'n')
+  execute 'nmap <buffer> P <Plug>(scranch-keep-alive)'
+endif
 
 nnoremap <buffer><silent> g? :help ScranchMappings<CR>

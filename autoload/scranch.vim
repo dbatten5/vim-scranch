@@ -76,6 +76,11 @@ function! scranch#toggle_home()
   setlocal filetype=scranch
 endfunction
 
+function! scranch#persist_window()
+  call s:deactivate_autocmds()
+  echo 'scranch: window persisted!'
+endfunction
+
 " utility
 
 function! s:get_home_note_path()
@@ -156,7 +161,7 @@ function! s:get_scranch_note_path()
 endfunction
 
 function! s:activate_autocmds(buf_name)
-  augroup ScranchAutoHide
+  augroup scranch_auto_hide
     autocmd!
     execute 'autocmd Winleave <buffer=' . a:buf_name . '> nested call <SID>close_window()'
     execute 'autocmd BufLeave <buffer=' . a:buf_name . '> nested call <SID>save_note()'
@@ -164,7 +169,7 @@ function! s:activate_autocmds(buf_name)
 endfunction
 
 function! s:deactivate_autocmds()
-  augroup ScranchAutoHide
+  augroup scranch_auto_hide
     autocmd!
   augroup END
 endfunction
