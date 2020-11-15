@@ -1,4 +1,4 @@
-*scranch.txt*    Git branch based note taking                               v1.0
+*scranch.txt*    Git branch based note taking                              v1.0
 *Scranch*
 
 ==============================================================================
@@ -44,13 +44,13 @@ command again to close the window.
 CONFIGURATION                                            *ScranchConfiguration*
 
 ------------------------------------------------------------------------------
-3.1 g:scranch_directory = `'tmp/scranch'`                   *g:scranch_directory*
+3.1 g:scranch_directory = `'tmp/scranch'`                 *g:scranch_directory*
 
 The root of the scranch note directory. Set this as a path to a valid
 directory on your disk.
 
 ------------------------------------------------------------------------------
-3.2 g:scranch_win_size = `0.2`                               *g:scranch_win_size*
+3.2 g:scranch_win_size = `0.2`                             *g:scranch_win_size*
 
 The size of the scranch window as a percentage of the full window height (0.2
 = 20%)
@@ -78,7 +78,15 @@ Buffer-local (filetype=scranch) ~
     <Plug>(scranch-toggle-home)
     gh             Switch to the home note, accessible from any project.
     <Plug>(scranch-keep-alive)
-    P              Keep the scranch window alive after navigation away.
+    gk             Keep the scranch window alive after navigation away.
+
+If any of these mappings don't suit your setup, you can override them as
+follows: >
+
+    nmap X <Plug>(scranch-toggle-todo-completion)
+
+Note the use of `nmap` rather than `nnoremap` as we **do** want vim to
+recursively map.
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:
