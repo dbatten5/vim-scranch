@@ -24,6 +24,7 @@ Inside a `scranch` buffer in normal mode:
 you're [oldschool](https://github.com/github/renaming)).
 - `T` to add a new todo item.
 - `-` with your cursor on a todo item line to toggle completion.
+- `gh` to flip to your home note, for general notes that span all projects.
 
 With more in the pipeline.
 

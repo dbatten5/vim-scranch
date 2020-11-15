@@ -39,24 +39,25 @@ endfunction
 
 function! scranch#toggle_main()
   let current_note = expand('%:r')
-  if current_note =~ 'main' || current_note =~ 'master'
+  if current_note =~? 'main' || current_note =~? 'master'
     echo 'scranch: already on main/master!'
     return 0
   endif
   execute ':e ' . s:get_main_note_path()
+  setlocal filetype=scranch
 endfunction
 
 function! scranch#add_todo()
-  call append(line('.'), '- [ ] ')
+  call append(line('.'), '- [ ]')
   execute 'normal! j'
   execute 'startinsert!'
 endfunction
 
 function! scranch#toggle_todo()
   let cur_line = getline('.')
-  if cur_line =~ '\[\ \]'
+  if cur_line =~? '\[\ \]'
     let new_line = substitute(cur_line, '\[\ \]', '\[x\]', 'g')
-  elseif cur_line =~ '\[x\]'
+  elseif cur_line =~? '\[x\]'
     let new_line = substitute(cur_line, '\[x\]', '\[\ \]', 'g')
   else
     echo 'scranch: not on a todo item!'
@@ -65,7 +66,21 @@ function! scranch#toggle_todo()
   call setline(line('.'), new_line)
 endfunction
 
+function! scranch#toggle_home()
+  let current_note = expand('%:r')
+  if current_note =~? 'home'
+    echo 'scranch: already on home!'
+    return 0
+  endif
+  execute ':e ' . s:get_home_note_path()
+  setlocal filetype=scranch
+endfunction
+
 " utility
+
+function! s:get_home_note_path()
+  return g:scranch_directory . '/home.md'
+endfunction
 
 function! s:get_main_note_path()
   let project_path = s:get_scranch_project_path()

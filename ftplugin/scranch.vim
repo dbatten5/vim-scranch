@@ -7,5 +7,8 @@ endif
 if !hasmapto('<Plug>(scranch-toggle-todo-completion)', 'n')
   execute 'nmap <buffer> - <Plug>(scranch-toggle-todo-completion)'
 endif
+if !hasmapto('<Plug>(scranch-toggle-home)', 'n')
+  execute 'nmap <buffer> gh <Plug>(scranch-toggle-home)'
+endif
 
 nnoremap <buffer><silent> g? :help ScranchMappings<CR>
