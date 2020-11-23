@@ -84,8 +84,12 @@ endfunction
 
 " utility
 
+function! s:get_scranch_directory()
+  return fnamemodify(g:scranch_directory, ':p')
+endfunction
+
 function! s:get_home_note_path()
-  return g:scranch_directory . '/home.md'
+  return s:get_scranch_directory() . '/home.md'
 endfunction
 
 function! s:get_main_note_path()
@@ -150,7 +154,7 @@ function! s:get_project_name()
 endfunction
 
 function! s:get_scranch_project_path()
-  return fnamemodify(g:scranch_directory . '/' . s:get_project_name(), ':p')
+  return s:get_scranch_directory() . '/' . s:get_project_name()
 endfunction
 
 function! s:get_sanitized_branch_name()
