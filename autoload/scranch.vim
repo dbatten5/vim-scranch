@@ -1,6 +1,6 @@
 " config
 
-let g:scranch_directory = get(g:, 'scranch_directory', '/tmp/scranch')
+let g:scranch_directory = get(g:, 'scranch_directory', '~/scranch')
 let g:scranch_win_size = get(g:, 'scranch_win_size', 0.2)
 
 " public methods
@@ -141,7 +141,7 @@ function! s:get_project_name()
   if exists('*projectroot#guess')
     let project = projectroot#guess()
   else
-    let project = finddir('.git/..', expand('%:p:h').';')
+    let project = finddir('.git/..', expand('%:p:h') . ';')
     if empty(project)
       let project = getcwd()
     endif
@@ -150,7 +150,7 @@ function! s:get_project_name()
 endfunction
 
 function! s:get_scranch_project_path()
-  return g:scranch_directory . '/' . s:get_project_name()
+  return fnamemodify(g:scranch_directory . '/' . s:get_project_name(), ':p')
 endfunction
 
 function! s:get_sanitized_branch_name()

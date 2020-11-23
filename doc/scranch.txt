@@ -44,7 +44,7 @@ command again to close the window.
 CONFIGURATION                                            *ScranchConfiguration*
 
 ------------------------------------------------------------------------------
-3.1 g:scranch_directory = `'tmp/scranch'`                 *g:scranch_directory*
+3.1 g:scranch_directory = `'~/scranch'`                     *g:scranch_directory*
 
 The root of the scranch note directory. Set this as a path to a valid
 directory on your disk.
