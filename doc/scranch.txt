@@ -11,6 +11,8 @@ CONTENTS                                                      *ScranchContents*
     3. Configuration ........................ |ScranchConfiguration|
       3.1 |g:scranch_directory|
       3.2 |g:scranch_win_size|
+      3.3 |g:scranch_no_mappings|
+      3.4 |g:scranch_disable|
     4. Mappings .................................. |ScranchMappings|
 
 ==============================================================================
@@ -54,6 +56,16 @@ directory on your disk.
 
 The size of the scranch window as a percentage of the full window height (0.2
 = 20%)
+
+------------------------------------------------------------------------------
+3.3 g:scranch_no_mappings = `0`                            *g:scranch_no_mappings*
+
+Set to 1 to disable all scranch buffer mappings.
+
+------------------------------------------------------------------------------
+3.4 g:scranch_disable = `0`                                    *g:scranch_disable*
+
+Set to 1 to disable the plugin entirely.
 
 ==============================================================================
 MAPPINGS                                                      *ScranchMappings*

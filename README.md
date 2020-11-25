@@ -13,7 +13,7 @@ led to this plugin. Opening the note window brings up a new note in a
 
 ## Features
 
-- `:Scranch` to open the `scranch` note window and into insert mode. Leaving 
+- `:Scranch` to open the `scranch` note window and into insert mode. Leaving
 the window automatically closes it and saves the note.
 - `:ScranchPreview` to open the `scranch` window but keep focus on the current
 window. Same command again to close it.
@@ -52,7 +52,10 @@ root.
 
 While this plugin creates new notes with ease, there's currently no support
 for deleting notes for stale / deleted branches. You'll just have to manage
-that yourselves. 
+that yourselves.
+
+**NB** Although this plugin is fully functional, it's still in its infancy, new
+feature ideas and PRs will be very warmly received.
 
 ## Credits
 
